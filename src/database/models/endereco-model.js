@@ -1,11 +1,10 @@
-const { Model, DataTypes } = require("sequelize");
+const { Model, DataTypes } = require('sequelize');
 
 class EnderecoModel extends Model {
-  static init(sequelize){
-
+  static init(sequelize) {
     const model = {
       cep: {
-        type: DataTypes.STRING,   
+        type: DataTypes.STRING,
       },
       logradouro: {
         type: DataTypes.STRING,
@@ -21,10 +20,10 @@ class EnderecoModel extends Model {
       },
       ibge: {
         type: DataTypes.INTEGER,
-      }
-    }
-    super.init(model, {sequelize, tableName: 'endereco'})
+      },
+    };
+    super.init(model, { sequelize, tableName: 'endereco' });
   }
 }
 
-module.exports = EnderecoModel
+module.exports = EnderecoModel;

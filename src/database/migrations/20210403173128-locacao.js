@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('livro',
+    await queryInterface.createTable('locacao',
       {
         id: {
           type: Sequelize.INTEGER,
@@ -10,26 +10,20 @@ module.exports = {
           autoIncrement: true,
           primaryKey: true,
         },
-        isbn: {
-          type: Sequelize.STRING,
+        dataagendamento: {
+          type: Sequelize.DATE,
           allowNull: false
         },
-        titulo: {
-          type: Sequelize.STRING,
+        dataretirada: {
+          type: Sequelize.DATE,
+        },
+        datafinalizacao: {
+          type: Sequelize.DATE,
           allowNull: false,
         },
-        valor_diaria: {
+        valorTotal: {
           type: Sequelize.DOUBLE,
           allowNull: false,
-        },
-        exemplares: {
-          type: Sequelize.INTEGER,
-          allowNull: false,
-        },
-        reservados: {
-          type: Sequelize.INTEGER,
-          allowNull: false,
-          unique: true
         },
         created_at: {
           type: Sequelize.DATE,
@@ -44,6 +38,6 @@ module.exports = {
   },
 
   down: async (queryInterface) => {
-    await queryInterface.dropTable('livro');
+    await queryInterface.dropTable('locacao');
   }
 };

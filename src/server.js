@@ -1,29 +1,56 @@
 'use strict';
 
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
 const Hapi = require('@hapi/hapi');
-const Inert = require('@hapi/inert')
-const Vision = require('@hapi/vision')
+const Inert = require('@hapi/inert');
+const Vision = require('@hapi/vision');
 const HapiSwagger = require('hapi-swagger');
 const DbConnection = require('./database');
-const Routes = require('./routes')
+const Routes = require('./routes');
 const Pack = require('../package');
 const HapiJwt = require('hapi-auth-jwt2');
 
-dotenv.config()
+dotenv.config();
 
 class Server {
+  static async init() {
+    const server = Hapi.server({
+      port: process.env.PORT || 3000,
+      host: 'localhost',
+    });
 
-    static async init() {
+    // const swaggerOptions = {
+    //     info: {
+    //         title: 'Times API Documentação',
+    //         version: Pack.version,
+    //     },
+    //     tags: [
+    //         {
+    //             name: 'clubes',
+    //             description: 'CRUD de clubes'
+    //         },
+    //     ],
+    //     grouping: 'tags',
+    // };
 
-        const server = Hapi.server({ port: process.env.PORT || 3000, host: 'localhost' });
+    // await server.register([
+    //     Inert,
+    //     Vision,
+    //     HapiJwt,
+    //     {
+    //         plugin: HapiSwagger,
+    //         options: swaggerOptions
+    //     }
+    // ]);
 
-        server.route(Routes)
+    // await JwtAuthStrategy.register(server)
 
-        await server.start();
+    server.route(Routes);
 
-        console.log('Server running on %s', server.info.uri);
-    };
+    await server.start();
+
+    console.log('Server running on %s', server.info.uri);
+  }
 }
 
-module.exports = Server
+module.exports = Server;
