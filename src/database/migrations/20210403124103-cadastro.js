@@ -32,14 +32,14 @@ module.exports = {
         allowNull: false,
         unique: true
       },
+      endereco_id:{
+        type: Sequelize.INTEGER,
+        references:{ model: 'endereco', key:'id' },
+        allowNull: false
+      },
       senha: {
         type: Sequelize.STRING,
         allowNull: false,
-      },
-      endereco_id: {
-        type: Sequelize.INTEGER,
-        references: {model: 'endereco', key: 'id'},
-        allowNull: false
       },
       updated_at: {
         type: Sequelize.DATE,

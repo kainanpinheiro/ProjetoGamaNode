@@ -4,10 +4,6 @@ class EnderecoModel extends Model {
   static init(sequelize){
 
     const model = {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true
-      },
       cep: {
         type: DataTypes.STRING,   
       },
@@ -24,14 +20,10 @@ class EnderecoModel extends Model {
         type: DataTypes.STRING,
       },
       ibge: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
       }
     }
-    super.init(model, {sequelize, tableName: 'cadastro'})
-  }
-
-  static associate(models){
-    this.belongsTo(models.EnderecoModel,{ foreignKey: 'endereco_id', as: 'endereco' } )
+    super.init(model, {sequelize, tableName: 'endereco'})
   }
 }
 

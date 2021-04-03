@@ -4,10 +4,6 @@ class CadastroModel extends Model {
   static init(sequelize){
 
     const model = {
-      id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true
-      },
       cpf: {
         type: DataTypes.STRING
       },
@@ -32,7 +28,7 @@ class CadastroModel extends Model {
 
   static associate(models){
     this.belongsTo(models.EnderecoModel,{ foreignKey: 'endereco_id', as: 'endereco' } )
-  }
+}
 }
 
 module.exports = CadastroModel
