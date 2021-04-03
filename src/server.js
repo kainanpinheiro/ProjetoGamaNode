@@ -6,9 +6,9 @@ const Inert = require('@hapi/inert')
 const Vision = require('@hapi/vision')
 const HapiSwagger = require('hapi-swagger');
 const Routes = require('./routes')
+const DbConnection = require('./database')
 const Pack = require('../package');
 const HapiJwt = require('hapi-auth-jwt2');
-const JwtAuthStrategy = require('./utils/jwt-auth-strategy');
 
 dotenv.config()
 
@@ -18,31 +18,31 @@ class Server {
 
         const server = Hapi.server({ port: process.env.PORT || 3000, host: 'localhost' });
 
-        const swaggerOptions = {
-            info: {
-                title: 'Biblioteca API Documentação',
-                version: Pack.version,
-            },
-            // tags: [
-            //     {
-            //       name: 'clubes',
-            //       description: 'CRUD de clubes'
-            //     },
-            // ],
-            // grouping: 'tags',
-        };
+        // const swaggerOptions = {
+        //     info: {
+        //         title: 'Times API Documentação',
+        //         version: Pack.version,
+        //     },
+        //     tags: [
+        //         {
+        //             name: 'clubes',
+        //             description: 'CRUD de clubes'
+        //         },
+        //     ],
+        //     grouping: 'tags',
+        // };
 
-        await server.register([
-            Inert,
-            Vision,
-            HapiJwt,
-            {
-                plugin: HapiSwagger,
-                options: swaggerOptions
-            }
-        ]);
+        // await server.register([
+        //     Inert,
+        //     Vision,
+        //     HapiJwt,
+        //     {
+        //         plugin: HapiSwagger,
+        //         options: swaggerOptions
+        //     }
+        // ]);
 
-        await JwtAuthStrategy.register(server)
+        // await JwtAuthStrategy.register(server)
 
         server.route(Routes)
 
