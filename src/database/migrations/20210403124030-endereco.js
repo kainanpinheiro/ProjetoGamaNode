@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('livro',
+    await queryInterface.createTable('endereco',
     {
       id: {
         type: Sequelize.INTEGER,
@@ -10,31 +10,35 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      isbn: {
+      cep: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      titulo: {
+      logradouro: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      valor_diaria: {
-        type: Sequelize.DOUBLE,
+      bairro: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
-      exemplares: {
-        type: Sequelize.INTEGER,
+      localidade: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
-      reservados: {
-        type: Sequelize.INTEGER,
+      uf: {
+        type: Sequelize.STRING,
         allowNull: false,
         unique: true
+      },
+      ibge: {
+        type: Sequelize.STRING,
+        allowNull: false,
       }
     })
   },
 
-  down: async (queryInterface) => {
-    await queryInterface.dropTable('livro');
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('endereco')
   }
 };
