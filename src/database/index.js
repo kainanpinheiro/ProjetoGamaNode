@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
 const DbConfig = require('../database/config/postgres');
 const dotenv = require('dotenv');
-const CadastroModel = require('./models/CadastroModel');
-const EnderecoModel = require('./models/EnderecoModel');
+const CadastroModel = require('./models/cadastro-model');
+const EnderecoModel = require('./models/endereco-model');
 const LivroModel = require('./models/livro-model');
 const LocacaoModel = require('./models/locacao-model');
 

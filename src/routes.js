@@ -1,4 +1,4 @@
-const cadastroRoutes = require('./routes/cadastroRoutes');
+const cadastroRoutes = require('./routes/cadastro-routes');
 const LivroRoutes = require('./routes/livro-routes');
 const LocacaoRoutes = require('./routes/locacao-routes');
 

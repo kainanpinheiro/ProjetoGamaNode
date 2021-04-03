@@ -1,8 +1,8 @@
-const BaseService = require('./baseService');
-const CadastroRepository = require('../repositories/cadastroRepository');
-const EnderecoRepository = require('../repositories/enderecoRepository');
+const BaseService = require('./base-service');
+const CadastroRepository = require('../repositories/cadastro-repository');
+const EnderecoRepository = require('../repositories/endereco-repository');
 const ViaCepUtil = require('../utils/viacep-util');
-const EnderecoModel = require('../database/models/enderecoModel');
+const EnderecoModel = require('../database/models/endereco-model');
 
 class CadastroService extends BaseService {
   constructor() {
