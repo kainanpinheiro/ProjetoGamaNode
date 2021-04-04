@@ -5,7 +5,6 @@ class BaseHandler {
     }
 
     getAll = async (req, h) => {
-
         try {
             return await this.service.getAll(req.query)
         } catch (err) {

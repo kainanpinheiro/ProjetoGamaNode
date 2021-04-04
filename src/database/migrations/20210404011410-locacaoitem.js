@@ -30,11 +30,6 @@ module.exports = {
           type: Sequelize.DOUBLE,
           allowNull: false,
         },
-        livro_id: {
-          type: Sequelize.INTEGER,
-          references: { model: 'livro', key: 'id' },
-          // allowNull: false
-        },
         created_at: {
           type: Sequelize.DATE,
           allowNull: false,
@@ -42,6 +37,14 @@ module.exports = {
         updated_at: {
           type: Sequelize.DATE,
           allowNull: false,
+        },
+        livro_id: {
+          type: Sequelize.INTEGER,
+          references: { model: 'livro', key: 'id' },
+        },
+        locacao_id: {
+          type: Sequelize.INTEGER,
+          references: { model: 'locacao', key: 'id' },
         }
 
       })

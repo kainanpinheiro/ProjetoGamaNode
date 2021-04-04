@@ -21,6 +21,9 @@ class LivroModel extends Model {
     };
     super.init(model, { sequelize, tableName: 'livro' });
   }
+  static associate(models) {
+    this.hasMany(models.LocacaoItemModel, { foreignKey: 'livro_id', as: 'locacaoitem' })
+  }
 }
 
 module.exports = LivroModel;
