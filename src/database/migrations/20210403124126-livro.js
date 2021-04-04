@@ -29,7 +29,6 @@ module.exports = {
         reservados: {
           type: Sequelize.INTEGER,
           allowNull: false,
-          unique: true
         },
         created_at: {
           type: Sequelize.DATE,
