@@ -32,26 +32,31 @@ module.exports = [
                     diarias: Joi.number(),
                     valor_diaria: Joi.number(),
                     valor_locacao: Joi.number(),
-                    livro_id: Joi.number().required(),
+                    // livro_id: Joi.number().required(),
+                    livro_id: Joi.array()
+                        .items({
+                            id: Joi.number().required()
+                        }),
                     locacao_id: Joi.number().required()
                 })
             }
         }
     },
     {
-        method: 'POST',
-        path: '/api/v1/locacaoitem/retirar',
-        handler: LocacaoItemHandler.add,
+        method: 'PUT',
+        path: '/api/v1/locacaoitem/retirar/{id}',
+        handler: LocacaoItemHandler.retirar,
         options: {
             validate: {
+                params: Joi.object({
+                    id: Joi.number().required(),
+                }),
                 payload: Joi.object({
                     data_entrega: Joi.date(),
                     data_previsao_entrega: Joi.date(),
                     diarias: Joi.number(),
                     valor_diaria: Joi.number(),
-                    valor_locacao: Joi.number(),
-                    livro_id: Joi.number().required(),
-                    locacao_id: Joi.number().required()
+                    valor_locacao: Joi.number()
                 })
             }
         }
