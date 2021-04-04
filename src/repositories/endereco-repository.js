@@ -1,9 +1,9 @@
-const enderecoModel = require('../database/models/endereco-model');
-const BaseRepository = require('./baseRepository');
+const EnderecoModel = require('../database/models/endereco-model');
+const BaseRepository = require('./base-repository')
 
 class EnderecoRepository extends BaseRepository {
   constructor() {
-    super(enderecoModel);
+    super(EnderecoModel);
   }
 }
 

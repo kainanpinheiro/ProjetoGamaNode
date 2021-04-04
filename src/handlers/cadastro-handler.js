@@ -1,4 +1,4 @@
-const BaseHandler = require('./baseHandler');
+const BaseHandler = require("./base-handler");
 const cadastroService = require('../services/cadastro-service.js');
 
 class CadastroHandler extends BaseHandler {

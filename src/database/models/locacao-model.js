@@ -4,16 +4,16 @@ class LocacaoModel extends Model {
     static init(sequelize) {
 
         const model = {
-            dataAgendamento: {
+            data_agendamento: {
                 type: DataTypes.DATE,
             },
-            dataRetirada: {
+            data_retirada: {
                 type: DataTypes.DATE,
             },
-            dataFinalizacao: {
+            data_finalizacao: {
                 type: DataTypes.DATE,
             },
-            valorTotal: {
+            valor_total: {
                 type: DataTypes.DOUBLE,
             },
         }

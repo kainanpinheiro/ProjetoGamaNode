@@ -1,9 +1,9 @@
-const cadastroModel = require('../database/models/cadastro-model');
-const baseRepository = require('./baseRepository');
+const CadastroModel = require('../database/models/cadastro-model');
+const BaseRepository = require('./base-repository')
 
-class CadastroRepository extends baseRepository {
+class CadastroRepository extends BaseRepository {
   constructor() {
-    super(cadastroModel);
+    super(CadastroModel);
   }
 }
 

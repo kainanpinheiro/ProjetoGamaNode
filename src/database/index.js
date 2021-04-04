@@ -5,6 +5,7 @@ const CadastroModel = require('./models/cadastro-model');
 const EnderecoModel = require('./models/endereco-model');
 const LivroModel = require('./models/livro-model');
 const LocacaoModel = require('./models/locacao-model');
+const LocacaoItemModel = require('./models/locacaoitem-model');
 
 dotenv.config();
 
@@ -14,8 +15,10 @@ CadastroModel.init(connection);
 EnderecoModel.init(connection);
 LivroModel.init(connection);
 LocacaoModel.init(connection);
+LocacaoItemModel.init(connection);
 
 CadastroModel.associate(connection.models);
+// LocacaoItemModel.associate(connection.models);
 // EnderecoModel.associate(connection.models)
 
 module.exports = connection;

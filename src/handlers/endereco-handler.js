@@ -1,4 +1,4 @@
-const BaseHandler = require('./baseHandler');
+const BaseHandler = require("./base-handler");
 const enderecoService = require('../services/endereco-service');
 
 class EnderecoHandler extends BaseHandler {

@@ -1,17 +1,17 @@
 const Joi = require("joi");
-const LocacaoHandler = require("../handlers/locacao-handler");
+const LocacaoItemHandler = require("../handlers/locacaoitem-handler");
 
 module.exports = [
 
     {
         method: 'GET',
-        path: '/api/v1/locacao',
-        handler: LocacaoHandler.getAll
+        path: '/api/v1/locacaoitem',
+        handler: LocacaoItemHandler.getAll
     },
     {
         method: 'GET',
-        path: '/api/v1/locacao/{id}',
-        handler: LocacaoHandler.getById,
+        path: '/api/v1/locacaoitem/{id}',
+        handler: LocacaoItemHandler.getById,
         options: {
             validate: {
                 params: Joi.object({
@@ -22,22 +22,25 @@ module.exports = [
     },
     {
         method: 'POST',
-        path: '/api/v1/locacao',
-        handler: LocacaoHandler.add,
+        path: '/api/v1/locacaoitem',
+        handler: LocacaoItemHandler.add,
         options: {
             validate: {
                 payload: Joi.object({
-                    data_agendamento: Joi.date(),
-                    data_finalizacao: Joi.date(),
-                    valor_total: Joi.number()
+                    data_entrega: Joi.date(),
+                    data_previsao_entrega: Joi.date(),
+                    diarias: Joi.number(),
+                    valor_diaria: Joi.number(),
+                    valor_locacao: Joi.number()
+                    // livro_id: Joi.number().required()
                 })
             }
         }
     },
     {
         method: 'PUT',
-        path: '/api/v1/locacao/{id}',
-        handler: LocacaoHandler.update,
+        path: '/api/v1/locacaoitem/{id}',
+        handler: LocacaoItemHandler.update,
         options: {
             validate: {
                 params: Joi.object({
@@ -51,8 +54,8 @@ module.exports = [
     },
     {
         method: 'DELETE',
-        path: '/api/v1/locacao/{id}',
-        handler: LocacaoHandler.remove,
+        path: '/api/v1/locacaoitem/{id}',
+        handler: LocacaoItemHandler.remove,
         options: {
             validate: {
                 params: Joi.object({
@@ -63,8 +66,8 @@ module.exports = [
     },
     {
         method: 'PATCH',
-        path: '/api/v1/locacao/{id}',
-        handler: LocacaoHandler.changeStatus,
+        path: '/api/v1/locacaoitem/{id}',
+        handler: LocacaoItemHandler.changeStatus,
         options: {
             validate: {
                 params: Joi.object({

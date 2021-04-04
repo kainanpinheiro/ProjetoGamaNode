@@ -7,9 +7,9 @@ module.exports = {
   database: process.env.DB_NAME,
   dialect: "postgres",
   dialectOptions: {
-    ssl: {
-      rejectUnauthorized: false
-    }
+    // ssl: {
+    //   rejectUnauthorized: false
+    // }
   },
   define: {
     timestamps: true,
