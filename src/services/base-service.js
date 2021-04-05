@@ -3,9 +3,8 @@ class BaseService {
     this.repository = repository;
   }
 
-  async getAll(query, include) {
-    if (query.active) query.active = query.active == 'true';
-    return await this.repository.getAll(query, include);
+  async getAll(include) {
+    return await this.repository.getAll(include);
   }
 
   async getById(id, include) {

@@ -10,7 +10,7 @@ class CadastroService extends BaseService {
   }
 
   async getAll() {
-    return await super.getAll({}, ['endereco']);
+    return await super.getAll(['endereco']);
   }
 
   async getById(id) {

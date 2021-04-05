@@ -1,12 +1,14 @@
-const BaseService = require("./base-service")
-const LivroRepository = require('../repositories/livro-repository')
-
+const BaseService = require('./base-service');
+const LivroRepository = require('../repositories/livro-repository');
 
 class LivroService extends BaseService {
+  constructor() {
+    super(new LivroRepository());
+  }
 
-    constructor() {
-        super(new LivroRepository())
-    }
+  async getAll() {
+    return await super.getAll();
+  }
 }
 
-module.exports = LivroService
+module.exports = LivroService;

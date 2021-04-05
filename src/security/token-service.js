@@ -17,8 +17,6 @@ class TokenService {
   };
 
   static validate = async (decoded, req, h) => {
-    console.log(decoded);
-
     return { isValid: true };
   };
 }

@@ -20,11 +20,6 @@ module.exports = [
       description: 'Obtem um livros',
       notes: 'Retorna um livro',
       tags: ['api', 'Livro'],
-      validate: {
-        params: Joi.object({
-          id: Joi.string().guid().required(),
-        }),
-      },
     },
   },
   {
