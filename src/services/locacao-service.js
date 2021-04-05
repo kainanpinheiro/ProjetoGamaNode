@@ -9,10 +9,6 @@ class LocacaoService extends BaseService {
         super(new LocacaoRepository())
     }
 
-    async getAll() {
-        return await super.getAll()
-    }
-
     async getById(id) {
         return await super.getById(id, ['cadastro', 'locacaoitem']);
     }

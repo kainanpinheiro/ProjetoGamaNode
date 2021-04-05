@@ -20,6 +20,11 @@ module.exports = [
       description: 'Obtem um cadastro',
       notes: 'Retorna um cadastro',
       tags: ['api', 'Cadastro'],
+      validate: {
+        params: Joi.object({
+          id: Joi.number().required()
+        })
+      }
     },
   },
   {
