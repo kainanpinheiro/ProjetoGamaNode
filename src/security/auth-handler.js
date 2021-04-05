@@ -16,7 +16,7 @@ class AuthHandler {
         return h.response({ message: 'Usuario não existe' }).code(400);
       }
 
-      if (usuario.senha != req.payload.senha) {
+      if (!(await usuario.checkPassword(req.payload.senha))) {
         return h.response({ message: 'Senha não confere' }).code(400);
       }
 
