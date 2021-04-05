@@ -22,7 +22,7 @@ module.exports = [
             tags: ['api', 'Locação'],
             validate: {
                 params: Joi.object({
-                    id: Joi.string().guid().required(),
+                    id: Joi.number().required(),
                 }),
             },
         },
@@ -48,30 +48,60 @@ module.exports = [
         },
     },
     {
-        method: 'DELETE',
-        path: '/api/v1/locacao/{id}',
-        handler: LocacaoHandler.remove,
+        method: 'PUT',
+        path: '/api/v1/locacao/retirar/{id}',
         options: {
+            handler: LocacaoHandler.retirar,
+            description: 'Atualiza a locação para retirado',
+            notes: 'Retorna a locação atualizada',
+            tags: ['api', 'Locação'],
             validate: {
                 params: Joi.object({
-                    id: Joi.string().guid().required(),
+                    id: Joi.number().required(),
                 }),
             },
         },
     },
     {
-        method: 'PATCH',
-        path: '/api/v1/locacao/{id}',
-        handler: LocacaoHandler.changeStatus,
+        method: 'PUT',
+        path: '/api/v1/locacao/devolver/{id}',
         options: {
+            handler: LocacaoHandler.devolver,
+            description: 'Atualiza a locação para finalizado',
+            notes: 'Retorna a locação atualizada',
+            tags: ['api', 'Locação'],
             validate: {
                 params: Joi.object({
-                    id: Joi.string().guid().required(),
-                }),
-                payload: Joi.object({
-                    active: Joi.boolean().required(),
+                    id: Joi.number().required(),
                 }),
             },
         },
     },
+    // {
+    //     method: 'DELETE',
+    //     path: '/api/v1/locacao/{id}',
+    //     handler: LocacaoHandler.remove,
+    //     options: {
+    //         validate: {
+    //             params: Joi.object({
+    //                 id: Joi.string().guid().required(),
+    //             }),
+    //         },
+    //     },
+    // },
+    // {
+    //     method: 'PATCH',
+    //     path: '/api/v1/locacao/{id}',
+    //     handler: LocacaoHandler.changeStatus,
+    //     options: {
+    //         validate: {
+    //             params: Joi.object({
+    //                 id: Joi.string().guid().required(),
+    //             }),
+    //             payload: Joi.object({
+    //                 active: Joi.boolean().required(),
+    //             }),
+    //         },
+    //     },
+    // },
 ];

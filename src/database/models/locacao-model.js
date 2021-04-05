@@ -19,6 +19,9 @@ class LocacaoModel extends Model {
             status: {
                 type: DataTypes.STRING,
             },
+            active: {
+                type: DataTypes.BOOLEAN
+            }
         }
         super.init(model, { sequelize, tableName: 'locacao' })
     }
