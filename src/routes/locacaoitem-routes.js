@@ -35,8 +35,7 @@ module.exports = [
                     livro_id: Joi.array()
                         .items({
                             id: Joi.number().required()
-                        }),
-                    locacao_id: Joi.number().required()
+                        })
                 })
             }
         }
