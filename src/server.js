@@ -52,7 +52,7 @@ class Server {
       },
     ]);
 
-    // await JwtAuthStrategy.register(server);
+    await JwtAuthStrategy.register(server);
 
     server.route(Routes);
 

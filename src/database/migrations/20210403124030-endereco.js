@@ -9,27 +9,27 @@ module.exports = {
         primaryKey: true,
       },
       cep: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(10),
         allowNull: false,
       },
       logradouro: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(50),
         allowNull: false,
       },
       bairro: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(50),
         allowNull: false,
       },
       localidade: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(50),
         allowNull: false,
       },
       uf: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(3),
         allowNull: false,
       },
       ibge: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER(50),
         allowNull: false,
       },
       updated_at: {

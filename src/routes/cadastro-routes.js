@@ -10,6 +10,11 @@ module.exports = [
       description: 'Obtem todos os cadastros',
       notes: 'Retorna uma lista de cadastros',
       tags: ['api', 'Cadastro'],
+      validate: {
+        headers: Joi.object({
+          authorization: Joi.string().required(),
+        }).options({ allowUnknown: true }),
+      },
     },
   },
   {
@@ -21,10 +26,13 @@ module.exports = [
       notes: 'Retorna um cadastro',
       tags: ['api', 'Cadastro'],
       validate: {
+        headers: Joi.object({
+          authorization: Joi.string().required(),
+        }).options({ allowUnknown: true }),
         params: Joi.object({
-          id: Joi.number().required()
-        })
-      }
+          id: Joi.number().required(),
+        }),
+      },
     },
   },
   {
@@ -38,10 +46,10 @@ module.exports = [
       auth: false,
       validate: {
         payload: Joi.object({
-          cpf: Joi.string().min(5).max(20).required(),
+          cpf: Joi.string().min(5).max(14).required(),
           nome: Joi.string().min(5).max(50).required(),
           email: Joi.string().min(5).max(50).required(),
-          telefone: Joi.string().min(5).max(20).required(),
+          telefone: Joi.string().min(5).max(50).required(),
           login: Joi.string().min(5).max(20).required(),
           senha_hash: Joi.string().min(5).max(50).required(),
           cep: Joi.string().min(5).max(50).required(),
