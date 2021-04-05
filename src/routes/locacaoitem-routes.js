@@ -27,11 +27,7 @@ module.exports = [
         options: {
             validate: {
                 payload: Joi.object({
-                    data_entrega: Joi.date(),
                     data_previsao_entrega: Joi.date(),
-                    diarias: Joi.number(),
-                    valor_diaria: Joi.number(),
-                    valor_locacao: Joi.number(),
                     livro_id: Joi.array()
                         .items({
                             id: Joi.number().required()
