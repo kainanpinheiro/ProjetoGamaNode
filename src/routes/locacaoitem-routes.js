@@ -32,12 +32,10 @@ module.exports = [
                     diarias: Joi.number(),
                     valor_diaria: Joi.number(),
                     valor_locacao: Joi.number(),
-                    // livro_id: Joi.number().required(),
                     livro_id: Joi.array()
                         .items({
                             id: Joi.number().required()
-                        }),
-                    locacao_id: Joi.number().required()
+                        })
                 })
             }
         }
@@ -56,7 +54,7 @@ module.exports = [
                     data_previsao_entrega: Joi.date(),
                     diarias: Joi.number(),
                     valor_diaria: Joi.number(),
-                    valor_locacao: Joi.number()
+                    valor_locacao: Joi.number(),
                 })
             }
         }

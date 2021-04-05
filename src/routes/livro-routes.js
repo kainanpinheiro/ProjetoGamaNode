@@ -35,8 +35,7 @@ module.exports = [
           isbn: Joi.string().min(5).max(50).required(),
           titulo: Joi.string().min(5).max(50).required(),
           valor_diaria: Joi.number().required(),
-          exemplares: Joi.number().required(),
-          reservados: Joi.number().required(),
+          exemplares: Joi.number().required()
         }),
       },
     },
