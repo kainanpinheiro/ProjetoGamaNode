@@ -6,7 +6,9 @@ A documentacao da API pode ser acessada em [API Biblioteca](https://academy-acce
 
 ## Team Duke_Gama_Friends
 	Ivan Domingos Moreira
-	Joao Fagundes Villar Bernardes
+	João Fagundes Villar Bernardes
+	Jorge Henrique Dos Santos Ferraz
+	José Victor
 	Kainan Pinheiro
 	Lazaro Marinho
 # Estrutura do projeto
