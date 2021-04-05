@@ -1,6 +1,7 @@
 const BaseService = require("./base-service")
 const LocacaoItemRepository = require('../repositories/locacaoitem-repository')
 const LocacaoRepository = require('../repositories/locacao-repository')
+const LivroRepository = require('../repositories/livro-repository');
 class LocacaoItemService extends BaseService {
 
     constructor() {
@@ -15,13 +16,15 @@ class LocacaoItemService extends BaseService {
         if (livros.length > 1) {
             livros.forEach(async (element, index) => {
                 let livro_id = element.id
+                const livro = await livroRepository.getById(livro_id);
+
                 retorno.push(
                     {
                         data_entrega: payload.data_entrega,
                         data_previsao_entrega: payload.data_previsao_entrega,
                         diarias: payload.diarias,
-                        valor_diaria: payload.valor_diaria,
-                        valor_locacao: payload.valor_locacao,
+                        valor_diaria: livro.valor_diaria,
+                        valor_locacao: 0.0,
                         status: payload.status,
                         livro_id: livro_id,
                         locacao_id: payload.locacao_id,
@@ -30,7 +33,14 @@ class LocacaoItemService extends BaseService {
                 await super.add(retorno[index]);
             });
         } else {
-            payload.livro_id = payload.livro_id[0].id;
+            const livroRepository = new LivroRepository();
+            const livro = await livroRepository.getById(payload.livro_id[0].id);
+
+            payload.diarias = 0.0
+            payload.valor_locacao = 0.0
+            payload.livro_id = livro.id;
+            payload.valor_diaria = livro.valor_diaria
+
             retorno = payload;
             await super.add(payload);
         }

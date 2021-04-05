@@ -37,7 +37,12 @@ module.exports = [
             tags: ['api', 'Locação'],
             validate: {
                 payload: Joi.object({
-                    cadastro_id: Joi.number().required()
+                    cadastro_id: Joi.number().required(),
+                    data_previsao_entrega: Joi.date(),
+                    livro_id: Joi.array()
+                        .items({
+                            id: Joi.number().required()
+                        })
                 }),
             },
         },
