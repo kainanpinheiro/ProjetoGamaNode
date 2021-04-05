@@ -30,10 +30,6 @@ class CadastroModel extends Model {
     this.belongsTo(models.EnderecoModel, { foreignKey: 'endereco_id', as: 'endereco' })
   }
 
-  static associate(models) {
-    this.hasMany(models.LocacaoModel, { foreignKey: 'cadastro_id', as: 'locacao' })
-  }
-
 }
 
 module.exports = CadastroModel
