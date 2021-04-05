@@ -1,5 +1,7 @@
 const BaseService = require("./base-service")
+const LocacaoItemRepository = require('../repositories/locacaoitem-repository')
 const LocacaoRepository = require('../repositories/locacao-repository')
+const LivroRepository = require('../repositories/livro-repository');
 const LocalDate = require('localdate');
 
 class LocacaoService extends BaseService {
@@ -8,37 +10,11 @@ class LocacaoService extends BaseService {
         super(new LocacaoRepository())
     }
 
+    async getAll() {
+        return await super.getAll(['cadastro', 'locacaoitem'])
+    }
+
     async add(payload) {
-        // let insert;
-
-        // var retorno = [];
-
-        // // PRECISA VALIDAR SE O LIVRO EXISTE!
-        // const livros = payload.livro_id;
-        // if (livros.length > 1) {
-        //     livros.forEach(async (element, index) => {
-        //         let livro_id = element.id
-        //         retorno.push(
-        //             {
-        //                 data_entrega: payload.data_entrega,
-        //                 data_previsao_entrega: payload.data_previsao_entrega,
-        //                 diarias: payload.diarias,
-        //                 valor_diaria: payload.valor_diaria,
-        //                 valor_locacao: payload.valor_locacao,
-        //                 status: payload.status,
-        //                 livro_id: livro_id,
-        //                 locacao_id: this,
-        //             }
-        //         )
-        //         insert = await super.add(retorno[index]);
-        //     });
-        // } else {
-        //     payload.livro_id = payload.livro_id[0].id;
-        //     retorno = payload;
-        //     insert = await super.add(payload);
-        // }
-
-        // return await super.getById(insert.id);
 
         let hoje = new Date();
         Date.prototype.addDays = function (days) {
@@ -53,6 +29,33 @@ class LocacaoService extends BaseService {
         payload.status = "R";
 
         const insert = await super.add(payload);
+
+        // CADASTRAR LOCACAO ITEM
+        const livroRepository = new LivroRepository();
+        const locacaoItemRepository = new LocacaoItemRepository();
+
+        // PRECISA VALIDAR SE O LIVRO EXISTE!
+        const livros = payload.livro_id;
+        var retorno = [];
+
+        livros.forEach(async (element, index) => {
+            let livro_id = element.id
+            const livro = await livroRepository.getById(livro_id);
+
+            retorno.push(
+                {
+                    data_entrega: payload.data_entrega,
+                    data_previsao_entrega: payload.data_previsao_entrega,
+                    diarias: 0.0,
+                    valor_diaria: livro.valor_diaria,
+                    valor_locacao: 0.0,
+                    status: payload.status,
+                    livro_id: livro_id,
+                    locacao_id: insert.id,
+                }
+            )
+            const insertLocacaoItem = await locacaoItemRepository.add(retorno[index]);
+        });
 
         return await super.getById(insert.id);
 

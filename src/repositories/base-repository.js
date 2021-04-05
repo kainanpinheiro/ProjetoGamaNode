@@ -34,10 +34,6 @@ class BaseRepository {
 
     return { id, removed: true };
   }
-
-  async getTransaction() {
-    return await DbConnection.transaction();
-  }
 }
 
 module.exports = BaseRepository;
