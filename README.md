@@ -10,7 +10,7 @@ A documentacao da API pode ser acessada em [API Biblioteca](https://academy-acce
 	Kainan Pinheiro
 	Lazaro Marinho
 # Estrutura do projeto
-![](https://uploaddeimagens.com.br/imagens/OuSf0u4)
+![](https://uploaddeimagens.com.br/images/003/183/008/full/estrutura_projeto.png?1617660640)
 
 # Tecnologias utilizadas
 - [Hapi](https://hapi.dev/tutorials/gettingstarted/?lang=en_US)
