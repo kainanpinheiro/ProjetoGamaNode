@@ -22,7 +22,7 @@ module.exports = [
     path: '/api/v1/livro/{id}',
     options: {
       handler: LivroHandler.getById,
-      description: 'Obtem um livros',
+      description: 'Obtem um livro',
       notes: 'Retorna um livro',
       tags: ['api', 'Livro'],
       validate: {
@@ -52,48 +52,6 @@ module.exports = [
           titulo: Joi.string().min(5).max(50).required(),
           valor_diaria: Joi.number().required(),
           exemplares: Joi.number().required(),
-        }),
-      },
-    },
-  },
-  {
-    method: 'PUT',
-    path: '/api/v1/livro/{id}',
-    options: {
-      handler: LivroHandler.update,
-      description: 'Atualiza um livro',
-      notes: 'Retorna o livro atualizado',
-      tags: ['api', 'Livro'],
-      validate: {
-        headers: Joi.object({
-          authorization: Joi.string().required(),
-        }).options({ allowUnknown: true }),
-        params: Joi.object({
-          id: Joi.string().guid().required(),
-        }),
-        payload: Joi.object({
-          nome: Joi.string().min(5).max(50).required(),
-        }),
-      },
-    },
-  },
-  {
-    method: 'PATCH',
-    path: '/api/v1/livro/{id}',
-    options: {
-      handler: LivroHandler.changeStatus,
-      description: 'Inativa um livro',
-      notes: 'Retorna o id',
-      tags: ['api', 'Livro'],
-      validate: {
-        headers: Joi.object({
-          authorization: Joi.string().required(),
-        }).options({ allowUnknown: true }),
-        params: Joi.object({
-          id: Joi.string().guid().required(),
-        }),
-        payload: Joi.object({
-          active: Joi.boolean().required(),
         }),
       },
     },
