@@ -10,6 +10,10 @@ class LocacaoService extends BaseService {
         super(new LocacaoRepository())
     }
 
+    async getAll() {
+        return await super.getAll(['cadastro', 'locacaoitem'])
+    }
+
     async add(payload) {
 
         let hoje = new Date();

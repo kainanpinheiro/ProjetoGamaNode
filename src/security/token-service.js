@@ -9,7 +9,7 @@ class TokenService {
     const claims = {
       jti: uuidv4(),
       sub: usuario.id,
-      //exp: moment().add(1, 'm').valueOf(), // vou fazer depois e enviar
+      //exp: moment().add(1, 'm').valueOf(),
       iss: 'biblioteca-api',
     };
 
