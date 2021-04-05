@@ -5,8 +5,8 @@ class BaseRepository {
     this.model = model;
   }
 
-  async getAll(query) {
-    return await this.model.findAll({ where: { ...query } });
+  async getAll(include) {
+    return await this.model.findAll({ include });
   }
 
   async getById(id, include) {

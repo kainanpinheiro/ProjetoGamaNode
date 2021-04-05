@@ -1,14 +1,11 @@
-const { v4: uuidv4 } = require('uuid');
-
 class BaseService {
   constructor(repository) {
     this.repository = repository;
   }
 
-  async getAll(query) {
+  async getAll(query, include) {
     if (query.active) query.active = query.active == 'true';
-
-    return await this.repository.getAll(query);
+    return await this.repository.getAll(query, include);
   }
 
   async getById(id, include) {

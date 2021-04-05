@@ -2,12 +2,19 @@ const BaseService = require('./base-service');
 const CadastroRepository = require('../repositories/cadastro-repository');
 const EnderecoRepository = require('../repositories/endereco-repository');
 const ViaCepUtil = require('../utils/viacep-util');
-const EnderecoModel = require('../database/models/endereco-model');
 
 class CadastroService extends BaseService {
   constructor() {
     super(new CadastroRepository());
     this.enderecoRepository = new EnderecoRepository();
+  }
+
+  async getAll() {
+    return await super.getAll({}, ['endereco']);
+  }
+
+  async getById(id) {
+    return await super.getById(id, ['endereco']);
   }
 
   async add(payload) {
@@ -17,10 +24,6 @@ class CadastroService extends BaseService {
     const cadastro = await super.add(payload);
 
     return await super.getById(cadastro.id, ['endereco']);
-  }
-
-  async getById(id) {
-    return await super.getById(id);
   }
 }
 

@@ -9,6 +9,7 @@ const DbConnection = require('./database');
 const Routes = require('./routes');
 const Pack = require('../package');
 const HapiJwt = require('hapi-auth-jwt2');
+const JwtAuthStrategy = require('./security/jwt-auth-strategy');
 
 dotenv.config();
 
@@ -19,31 +20,39 @@ class Server {
       host: 'localhost',
     });
 
-    // const swaggerOptions = {
-    //     info: {
-    //         title: 'Times API Documentação',
-    //         version: Pack.version,
-    //     },
-    //     tags: [
-    //         {
-    //             name: 'clubes',
-    //             description: 'CRUD de clubes'
-    //         },
-    //     ],
-    //     grouping: 'tags',
-    // };
+    const swaggerOptions = {
+      info: {
+        title: 'Biblioteca API Documentação',
+        version: Pack.version,
+      },
+      tags: [
+        {
+          name: 'Cadastro',
+          description: 'CRUD de cadastros',
+        },
+        {
+          name: 'Livro',
+          description: 'CRUD de livros',
+        },
+        {
+          name: 'Locação',
+          description: 'CRUD de locação',
+        },
+      ],
+      grouping: 'tags',
+    };
 
-    // await server.register([
-    //     Inert,
-    //     Vision,
-    //     HapiJwt,
-    //     {
-    //         plugin: HapiSwagger,
-    //         options: swaggerOptions
-    //     }
-    // ]);
+    await server.register([
+      Inert,
+      Vision,
+      HapiJwt,
+      {
+        plugin: HapiSwagger,
+        options: swaggerOptions,
+      },
+    ]);
 
-    // await JwtAuthStrategy.register(server)
+    await JwtAuthStrategy.register(server);
 
     server.route(Routes);
 
