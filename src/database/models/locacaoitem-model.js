@@ -19,6 +19,9 @@ class LocacaoItemModel extends Model {
             valor_locacao: {
                 type: DataTypes.DOUBLE,
             },
+            active: {
+                type: DataTypes.BOOLEAN
+            }
         }
         super.init(model, { sequelize, tableName: 'locacaoitem' })
     }

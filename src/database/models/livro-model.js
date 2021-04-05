@@ -18,6 +18,9 @@ class LivroModel extends Model {
       reservados: {
         type: DataTypes.INTEGER,
       },
+      active: {
+        type: DataTypes.BOOLEAN
+      }
     };
     super.init(model, { sequelize, tableName: 'livro' });
   }

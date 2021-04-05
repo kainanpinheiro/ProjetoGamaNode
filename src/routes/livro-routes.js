@@ -10,6 +10,11 @@ module.exports = [
       description: 'Obtem todos os livros',
       notes: 'Retorna uma lista de livros',
       tags: ['api', 'Livro'],
+      validate: {
+        headers: Joi.object({
+          authorization: Joi.string().required(),
+        }).options({ allowUnknown: true }),
+      },
     },
   },
   {
@@ -20,6 +25,14 @@ module.exports = [
       description: 'Obtem um livros',
       notes: 'Retorna um livro',
       tags: ['api', 'Livro'],
+      validate: {
+        headers: Joi.object({
+          authorization: Joi.string().required(),
+        }).options({ allowUnknown: true }),
+        params: Joi.object({
+          id: Joi.number().required(),
+        }),
+      },
     },
   },
   {
@@ -31,11 +44,14 @@ module.exports = [
       notes: 'Retorna o livro adicionado',
       tags: ['api', 'Livro'],
       validate: {
+        headers: Joi.object({
+          authorization: Joi.string().required(),
+        }).options({ allowUnknown: true }),
         payload: Joi.object({
           isbn: Joi.string().min(5).max(50).required(),
           titulo: Joi.string().min(5).max(50).required(),
           valor_diaria: Joi.number().required(),
-          exemplares: Joi.number().required()
+          exemplares: Joi.number().required(),
         }),
       },
     },
@@ -49,6 +65,9 @@ module.exports = [
       notes: 'Retorna o livro atualizado',
       tags: ['api', 'Livro'],
       validate: {
+        headers: Joi.object({
+          authorization: Joi.string().required(),
+        }).options({ allowUnknown: true }),
         params: Joi.object({
           id: Joi.string().guid().required(),
         }),
@@ -59,26 +78,17 @@ module.exports = [
     },
   },
   {
-    method: 'DELETE',
-    path: '/api/v1/livro/{id}',
-    options: {
-      handler: LivroHandler.remove,
-      description: 'Deleta um livro',
-      notes: 'Retorna o id',
-      tags: ['api', 'Livro'],
-      validate: {
-        params: Joi.object({
-          id: Joi.string().guid().required(),
-        }),
-      },
-    },
-  },
-  {
     method: 'PATCH',
     path: '/api/v1/livro/{id}',
     options: {
       handler: LivroHandler.changeStatus,
+      description: 'Inativa um livro',
+      notes: 'Retorna o id',
+      tags: ['api', 'Livro'],
       validate: {
+        headers: Joi.object({
+          authorization: Joi.string().required(),
+        }).options({ allowUnknown: true }),
         params: Joi.object({
           id: Joi.string().guid().required(),
         }),
