@@ -17,7 +17,7 @@ class Server {
   static async init() {
     const server = Hapi.server({
       port: process.env.PORT || 3000,
-      host: 'https://biblioteca-gama-node.herokuapp.com/',
+      host: 'localhost',
     });
 
     const swaggerOptions = {
