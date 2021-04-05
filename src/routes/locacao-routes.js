@@ -40,24 +40,11 @@ module.exports = [
                     data_agendamento: Joi.date(),
                     data_finalizacao: Joi.date(),
                     valor_total: Joi.number(),
+                    status: Joi.string().min(1).max(1).required(),
+                    cadastro_id: Joi.number().required()
                 }),
             },
         },
-    {
-        method: 'POST',
-        path: '/api/v1/locacao',
-        handler: LocacaoHandler.add,
-        options: {
-            validate: {
-                payload: Joi.object({
-                    data_agendamento: Joi.date(),
-                    data_finalizacao: Joi.date(),
-                    valor_total: Joi.number(),
-                    status: Joi.string().min(1).max(1).required(),
-                    cadastro_id: Joi.number().required()
-                })
-            }
-        }
     },
     {
         method: 'DELETE',
