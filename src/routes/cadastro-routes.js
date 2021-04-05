@@ -20,6 +20,11 @@ module.exports = [
       description: 'Obtem um cadastro',
       notes: 'Retorna um cadastro',
       tags: ['api', 'Cadastro'],
+      validate: {
+        params: Joi.object({
+          id: Joi.number().required()
+        })
+      }
     },
   },
   {
@@ -38,7 +43,7 @@ module.exports = [
           email: Joi.string().min(5).max(50).required(),
           telefone: Joi.string().min(5).max(20).required(),
           login: Joi.string().min(5).max(20).required(),
-          senha: Joi.string().min(5).max(50).required(),
+          senha_hash: Joi.string().min(5).max(50).required(),
           cep: Joi.string().min(5).max(50).required(),
         }),
       },

@@ -26,7 +26,7 @@ module.exports = {
           allowNull: false,
         },
         status: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(1),
           allowNull: false,
         },
         active: {

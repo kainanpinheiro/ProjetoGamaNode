@@ -3,8 +3,8 @@ class BaseService {
     this.repository = repository;
   }
 
-  async getAll(include) {
-    return await this.repository.getAll(include);
+  async getAll() {
+    return await this.repository.getAll();
   }
 
   async getById(id, include) {

@@ -9,10 +9,6 @@ class CadastroService extends BaseService {
     this.enderecoRepository = new EnderecoRepository();
   }
 
-  async getAll() {
-    return await super.getAll(['endereco']);
-  }
-
   async getById(id) {
     return await super.getById(id, ['endereco']);
   }

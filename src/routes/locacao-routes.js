@@ -77,31 +77,4 @@ module.exports = [
             },
         },
     },
-    // {
-    //     method: 'DELETE',
-    //     path: '/api/v1/locacao/{id}',
-    //     handler: LocacaoHandler.remove,
-    //     options: {
-    //         validate: {
-    //             params: Joi.object({
-    //                 id: Joi.string().guid().required(),
-    //             }),
-    //         },
-    //     },
-    // },
-    // {
-    //     method: 'PATCH',
-    //     path: '/api/v1/locacao/{id}',
-    //     handler: LocacaoHandler.changeStatus,
-    //     options: {
-    //         validate: {
-    //             params: Joi.object({
-    //                 id: Joi.string().guid().required(),
-    //             }),
-    //             payload: Joi.object({
-    //                 active: Joi.boolean().required(),
-    //             }),
-    //         },
-    //     },
-    // },
 ];
