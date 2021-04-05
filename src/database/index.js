@@ -21,6 +21,5 @@ CadastroModel.associate(connection.models);
 LocacaoItemModel.associate(connection.models);
 LivroModel.associate(connection.models);
 LocacaoModel.associate(connection.models);
-// EnderecoModel.associate(connection.models)
 
 module.exports = connection;
