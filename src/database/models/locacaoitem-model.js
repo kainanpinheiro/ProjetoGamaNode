@@ -26,6 +26,7 @@ class LocacaoItemModel extends Model {
     static associate(models) {
         this.belongsTo(models.LivroModel, { foreignKey: 'livro_id', as: 'livro' })
     }
+
     static associate(models) {
         this.belongsTo(models.LocacaoModel, { foreignKey: 'locacao_id', as: 'locacao' })
     }

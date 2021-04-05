@@ -25,6 +25,10 @@ module.exports = {
           type: Sequelize.DOUBLE,
           allowNull: false,
         },
+        status: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
         created_at: {
           type: Sequelize.DATE,
           allowNull: false,
@@ -32,6 +36,10 @@ module.exports = {
         updated_at: {
           type: Sequelize.DATE,
           allowNull: false,
+        },
+        cadastro_id: {
+          type: Sequelize.INTEGER,
+          references: { model: 'cadastro', key: 'id' },
         }
 
       })

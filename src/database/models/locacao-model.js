@@ -16,6 +16,9 @@ class LocacaoModel extends Model {
             valor_total: {
                 type: DataTypes.DOUBLE,
             },
+            status: {
+                type: DataTypes.STRING,
+            },
         }
         super.init(model, { sequelize, tableName: 'locacao' })
     }
@@ -23,6 +26,10 @@ class LocacaoModel extends Model {
     static associate(models) {
         this.hasMany(models.LocacaoItemModel, { foreignKey: 'locacao_id', as: 'locacaoitem' })
     }
+    static associate(models) {
+        this.belongsTo(models.LocacaoModel, { foreignKey: 'cadastro_id', as: 'cadastro' })
+    }
+
 }
 
 module.exports = LocacaoModel

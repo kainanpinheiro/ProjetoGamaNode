@@ -29,7 +29,9 @@ module.exports = [
                 payload: Joi.object({
                     data_agendamento: Joi.date(),
                     data_finalizacao: Joi.date(),
-                    valor_total: Joi.number()
+                    valor_total: Joi.number(),
+                    status: Joi.string().min(1).max(1).required(),
+                    cadastro_id: Joi.number().required()
                 })
             }
         }

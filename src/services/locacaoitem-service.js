@@ -22,6 +22,7 @@ class LocacaoItemService extends BaseService {
                         diarias: payload.diarias,
                         valor_diaria: payload.valor_diaria,
                         valor_locacao: payload.valor_locacao,
+                        status: payload.status,
                         livro_id: livro_id,
                         locacao_id: payload.locacao_id,
                     }
@@ -40,7 +41,7 @@ class LocacaoItemService extends BaseService {
         let locacaoRepository = new LocacaoRepository();
         let objLocacao = await locacaoRepository.getById(id);
         if (objLocacao != null) {
-            console.log()
+            console.log(objLocacao.valor_total);
         }
         // return await this.repository.update(id, payload);
         return [];
