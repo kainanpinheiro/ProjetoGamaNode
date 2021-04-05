@@ -13,6 +13,8 @@ A documentacao da API pode ser acessada em [API Biblioteca](https://academy-acce
 ![](https://uploaddeimagens.com.br/images/003/183/008/full/estrutura_projeto.png?1617660640)
 
 # Tecnologias utilizadas
+- [Nodejs](https://nodejs.org/en/)
+- [Sequelize](https://www.npmjs.com/package/sequelize)
 - [Hapi](https://hapi.dev/tutorials/gettingstarted/?lang=en_US)
 - [JSON Web Tokens](https://jwt.io/#)
 - [PostgreSQL](https://www.postgresql.org/#)
